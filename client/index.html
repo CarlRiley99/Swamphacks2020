@@ -73,6 +73,7 @@
 
       </div>
       <div class="item2">
+        <h2>Calendar</h2>
         <iframe src="https://calendar.google.com/calendar/embed?src=vedant.a.daga%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
       </div>
       <div class="item3">
@@ -113,8 +114,18 @@
           </tbody>
         </table>
       </div>  
-      <div class="item5">Footer</div>
+      <div class="item5">    
+        <form novalidate class="simple-form">
+          <h2>New Task</h2>
+          Task Name: <input type="text" ng-model="newListing.name" /><br /> <!-- ng-model stores input data into the "newListing"--> 
+          Deadline: <input type="date" ng-model="newListing.deadline" /><br />
+          Set Amount: <input type="number" ng-model="newListing.amount" /><br />
+          
+        </form>
+
+      <button type="button" class="btn btn-secondary" ng-click="addListing()">Enter</button></div>
     </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>

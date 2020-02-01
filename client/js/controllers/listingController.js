@@ -14,6 +14,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       *Save the article using the Listings factory. If the object is successfully
       saved redirect back to the list page. Otherwise, display the error
      */
+      console.log("Jru");
       Listings.create($scope.newListing).then(function(response) {
         $scope.listings.push(response.data); //Pushes new data into the array so changes immediately is reflected on website.
         $window.location.href = '/'; //Redirects back to the root directory.
