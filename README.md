@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Creating a server-side CRUD module using Express
 In Bootcamp Assignment #1, we created a simple node server that retrieved our listings by responding to GET requests to '/listings'. You are now going to add more functionality to this server that allows us to **create**, **read**, **update**, and **delete** listings from a Mongo database. These tasks are commonly referred to as CRUD. 
 
@@ -195,3 +196,6 @@ In `server/routes/listings.server.routes.js`, you will find code that specifies 
 7. Check your user interface: `http://localhost:8080/`.
 
 >>>>>>> 868e83aefae02a7fdaf56e8fa1e8634a42389545
+=======
+# Swamphacks2020
+>>>>>>> 8fef7a49497f7f36d434b5f2603ff2c42066f18e
