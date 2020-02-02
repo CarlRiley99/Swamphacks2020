@@ -5,12 +5,12 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       console.log(response);
       $scope.listings = response.data;
       //Format date properly
-      // $scope.listings.forEach(task => {
-      //   var month = format(task.deadline.getMonth() + 1);
-      //   var day = format(task.deadline.getDate());
-      //   var year = format(task.deadlines.getFullYear());
-      //   console.log(month + "/" + day + "/" + year);
-      // });
+      $scope.listings.forEach(task => {
+        // var month = format(task.deadline.getMonth() + 1);
+        // var day = format(task.deadline.getDate());
+        // var year = format(task.deadlines.getFullYear());
+        // console.log(month + "/" + day + "/" + year);
+      });
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
