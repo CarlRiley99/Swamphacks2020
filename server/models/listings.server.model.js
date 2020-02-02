@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var listingSchema = new Schema({
   
   name: String,
-  status: String, 
+  //status: String, 
   amount: Number,
   deadline: Date,
 
@@ -16,7 +16,7 @@ var listingSchema = new Schema({
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
-  this.status = "Not Finished";
+  //this.status = "Not Finished";
   var currentTime = new Date;
   this.updated_at = currentTime;
   if(!this.created_at)

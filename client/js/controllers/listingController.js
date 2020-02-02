@@ -15,6 +15,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       saved redirect back to the list page. Otherwise, display the error
      */
       console.log("Jru");
+      console.log($scope.newListing);
       Listings.create($scope.newListing).then(function(response) {
         $scope.listings.push(response.data); //Pushes new data into the array so changes immediately is reflected on website.
         $window.location.href = '/'; //Redirects back to the root directory.
