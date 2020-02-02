@@ -2,10 +2,22 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
   function($scope, Listings) {
     /* Get all the listings, then bind it to the scope */
     Listings.getAll().then(function(response) {
+      console.log(response);
       $scope.listings = response.data;
+      //Format date properly
+      // $scope.listings.forEach(task => {
+      //   var month = format(task.deadline.getMonth() + 1);
+      //   var day = format(task.deadline.getDate());
+      //   var year = format(task.deadlines.getFullYear());
+      //   console.log(month + "/" + day + "/" + year);
+      // });
     }, function(error) {
       console.log('Unable to retrieve listings:', error);
     });
+
+    $scope.depositMoney = function (amount) {
+      $scope.balance = amount;
+    };
 
     $scope.detailedInfo = undefined;
 
@@ -14,11 +26,10 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       *Save the article using the Listings factory. If the object is successfully
       saved redirect back to the list page. Otherwise, display the error
      */
-      console.log("Jru");
       console.log($scope.newListing);
       Listings.create($scope.newListing).then(function(response) {
         $scope.listings.push(response.data); //Pushes new data into the array so changes immediately is reflected on website.
-        $window.location.href = '/'; //Redirects back to the root directory.
+        //window.location.href = '/'; //Redirects back to the root directory.
         console.log('Successfully added listing!');
       }, function(error) {
         console.log('Unable to add listing: ', error);
@@ -32,8 +43,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         */
       Listings.delete(id).then(function(response) {
         //This version of deletion requires the webpage to be refreshed to reflect changes.
-        Listings.splice($scope.listings.indexOf($scope.listings), 1);
-        $window.location.href = '/'; //Redirects back to the root directory.
+        $scope.listings.splice($scope.listings.indexOf($scope.listings), 1);
+        window.location.href = '/'; //Redirects back to the root directory.
       }, function(error) {
         console.log('Unable to delete listing: ', error);
       });

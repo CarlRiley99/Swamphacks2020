@@ -3,36 +3,18 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
-    <style>
-      .item1 { grid-area: header; }
-      .item2 { grid-area: menu; }
-      .item3 { grid-area: main; }
-      .item5 { grid-area: footer; }
-      
-      .grid-container {
-        display: grid;
-        grid-template-areas:
-          'header header header header header header'
-          'menu main main main main main'
-          'footer main main main main main';
-        grid-gap: 10px;
-        background-color: #9bc9;
-        padding: 10px;
-      }
-      
-      .grid-container > div {
-        background-color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-        padding: 50px 0;
-        font-size: 30px;
-      }
-      </style>
   </head>
   <body ng-app="directoryApp" ng-controller="ListingsController">
     
     <div class="grid-container">
       <div class="item1">
-
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="number" placeholder="Amount" aria-label="Search" ng-model="deposit">
+          <button class="btn btn-outline-success my-2 my-sm-0" ng-click="depositMoney(deposit)">Deposit</button>
+        </form>
+        <div>
+          Current Balance: ${{balance}}
+        </div>
       </div>
       <div class="item2">
         <h2>Calendar</h2>
@@ -45,33 +27,17 @@
               <th scope="col">Status</th>
               <th scope="col">Task</th>
               <th scope="col">Deadline</th>
-              <th scope="col">Set Amount</th>
+              <th scope="col">Amount</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr ng-repeat="listing in listings">
               <th scope="row">
-                <button type="button" class="btn btn-secondary">Finished</button>
+                <button type="button" class="btn btn-secondary" ng-click="deleteListing(listing._id)">Finished</button>
               </th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <button type="button" class="btn btn-secondary">Finished</button>
-              </th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <button type="button" class="btn btn-secondary">Finished</button>
-              </th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td>{{listing.name}}</td>
+              <td>{{listing.deadline}}</td>
+              <td>{{listing.amount}}</td>
             </tr>
           </tbody>
         </table>
